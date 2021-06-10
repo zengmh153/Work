@@ -26,14 +26,15 @@ public class Resou implements Runnable {
         ArrayList<HashMap<String,String>> listItems=new ArrayList<HashMap<String,String>>();
         try {
             Thread.sleep(500);
-            Document doc = Jsoup.connect(" https://www.boc.cn/sourcedb/whpj/ ").get();
+            Document doc = Jsoup.connect(" https://s.weibo.com/top/summary ").get();
 
-            Element table = doc.getElementsByTag("table").get(1);
+            Element table = doc.getElementsByTag("table").get(0);
             Elements trs = table.getElementsByTag("td");
+            Log.i(TAG, "run: 1"+ trs);
             Log.i(TAG, "run: trs="+trs);
-            for(int i = 0 ;i <trs.size(); i+=8){
+            for(int i = 1 ;i <trs.size(); i+=3){
                 Element td1 = trs.get(i);
-                Element td2=trs.get(i+5);
+                Element td2=trs.get(i+1);
                 String a=td1.text();
                 String b=td2.text();
                 HashMap<String,String> map=new HashMap<String, String>();
