@@ -27,23 +27,21 @@ public class Resou implements Runnable {
         try {
             Thread.sleep(500);
             Document doc = Jsoup.connect(" https://s.weibo.com/top/summary ").get();
-
             Element table = doc.getElementsByTag("table").get(0);
             Elements trs = table.getElementsByTag("td");
-            Log.i(TAG, "run: 1"+ trs);
             Log.i(TAG, "run: trs="+trs);
             for(int i = 1 ;i <trs.size(); i+=3){
                 Element td1 = trs.get(i);
-                Element td2=trs.get(i+1);
                 String a=td1.text();
-                String b=td2.text();
+                String b=td1.attr("href");
+                Log.i(TAG, "run: b="+b);
                 HashMap<String,String> map=new HashMap<String, String>();
                 map.put("ItemTitle",a);
-                map.put("ItemDetail",b);
+                map.put("ItemDetail",a);
                 listItems.add(map);}
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
-            Log.e(TAG, "run:" + e.toString());
+            Log.e(TAG, "run:123" + e.toString());
         }
         Message msg = handler.obtainMessage(9, listItems);
         handler.sendMessage(msg);
