@@ -3,8 +3,6 @@ package com.text.work;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -35,24 +33,8 @@ public class page2 extends AppCompatActivity {
         save = (Button) findViewById(R.id.button4);
         reset = (Button) findViewById(R.id.button5);
 
-
-        input.addTextChangedListener(new TextWatcher(){
-            @Override
-            public void beforeTextChanged (CharSequence charSequence,int i, int i1, int i2){
-
-            }
-
-            @Override
-            public void onTextChanged (CharSequence charSequence,int i, int i1, int i2){
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         onload();
+
         input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +91,7 @@ public class page2 extends AppCompatActivity {
         });
     }
 
-    public void onload(){
+    public void onload(){//保存备忘录内容 参考于https://www.jianshu.com/p/f4874b43036b
         FileInputStream fis = null;
         try{
             fis = openFileInput("txt");
@@ -142,8 +124,6 @@ public class page2 extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode,event);
     }
-    public void reset(View btn){
-        }
 
 
     private void setFullScreen(){
