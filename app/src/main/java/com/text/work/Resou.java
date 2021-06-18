@@ -32,12 +32,13 @@ public class Resou implements Runnable {
             Log.i(TAG, "run: trs="+trs);
             for(int i = 1 ;i <trs.size(); i+=3){
                 Element td1 = trs.get(i);
+                Log.i(TAG, "run: td1=" + td1);
                 String a=td1.text();
-                String b=td1.attr("href");
+                String b=td1.getElementsByTag("a").first().attr("href");
                 Log.i(TAG, "run: b="+b);
                 HashMap<String,String> map=new HashMap<String, String>();
                 map.put("ItemTitle",a);
-                map.put("ItemDetail",a);
+                map.put("ItemDetail",b);
                 listItems.add(map);}
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

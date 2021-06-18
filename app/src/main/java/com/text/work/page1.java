@@ -1,6 +1,7 @@
 package com.text.work;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -68,18 +69,30 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
         HashMap<String,String> map = (HashMap<String,String>) itemAtPosition;
     }
 
+
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         Log.i(TAG, "onItemLongClick: 长按事件处理position="+position);
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示")
-                .setMessage("功能尚未完成")
+                .setMessage("是否转入备忘录粘贴链接")
                 .setNegativeButton("否",null)
                 .setPositiveButton("是",new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                        Object itemAtPosition=listView.getItemAtPosition(position);
+                        HashMap<String,String> map = (HashMap<String,String>) itemAtPosition;
+                        String titleStr = map.get("ItemTitle");
+                        String detailStr = map.get("ItemDetail");
+                        Intent config2 = new Intent(page1.this, page2.class);
+
+                        config2.putExtra("biaoti",titleStr);
+                        config2.putExtra("lianjie",detailStr);
+                        //Log.i(TAG, "onCreate: dollarRate=" + dollarRate);
+                        //Log.i(TAG, "onCreate: euroRate=" + euroRate);
+                        // Log.i(TAG, "onCreate: wonRate=" + wonRate);
+                        startActivityForResult(config2, 2);
                     }
                 });
         builder.create().show();

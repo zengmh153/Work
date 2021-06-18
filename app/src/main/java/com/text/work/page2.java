@@ -1,12 +1,10 @@
 package com.text.work;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,83 +16,100 @@ import java.io.FileOutputStream;
 public class page2 extends AppCompatActivity {
     private static final String TAG = "page2";
     private EditText input;
-    private Button save;
-    private Button reset;
+    String a,b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setFullScreen();
-
-
         input = (EditText) findViewById(R.id.input1);
-        save = (Button) findViewById(R.id.button4);
-        reset = (Button) findViewById(R.id.button5);
+
+        Intent intent=getIntent();
+        a=intent.getStringExtra("biaoti");
+        b=intent.getStringExtra("lianjie");
 
         onload();
 
-        input.setOnClickListener(new View.OnClickListener() {
+        input.setOnClickListener(new View.OnClickListener() {//备忘录内容输入与保存清空 参考于https://www.jianshu.com/p/f4874b43036b
             @Override
             public void onClick(View view) {
-                input.setCursorVisible(true);
-            }
-        });
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FileOutputStream fos = null;
-                try {
-                    fos = openFileOutput("txt", Context.MODE_PRIVATE);
-                    String text = input.getText().toString();
-                    fos.write(text.getBytes());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (fos != null) {
-                            fos.flush();
-                            Toast.makeText(page2.this, "保存成功！", Toast.LENGTH_SHORT).show();
-                            fos.close();
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                input.setCursorVisible(true);//使光标可见
             }
         });
 
-        reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FileOutputStream fos = null;
-                input.setText("");
-                try {
-                    fos = openFileOutput("txt", Context.MODE_PRIVATE);
-                    String text = "";
-                    fos.write(text.getBytes());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (fos != null) {
-                            fos.flush();
-                            Toast.makeText(page2.this, "清空成功！", Toast.LENGTH_SHORT).show();
-                            fos.close();
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
     }
-
-    public void onload(){//保存备忘录内容 参考于https://www.jianshu.com/p/f4874b43036b
+    public void click3(View btn) {
+        FileOutputStream fos = null;
+        try {
+            fos = openFileOutput("text", Context.MODE_PRIVATE);
+            String text = input.getText().toString();
+            fos.write(text.getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.flush();
+                    Toast.makeText(page2.this, "保存成功！", Toast.LENGTH_SHORT).show();
+                    fos.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void click4(View btn) {
+        FileOutputStream fos = null;
+        input.setText("");
+        try {
+            fos = openFileOutput("text", Context.MODE_PRIVATE);
+            String text = "";
+            fos.write(text.getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.flush();
+                    Toast.makeText(page2.this, "清空成功！", Toast.LENGTH_SHORT).show();
+                    fos.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void click5(View btn) {
+        FileOutputStream fos = null;
+        try {
+            fos = openFileOutput("text", Context.MODE_PRIVATE);
+            if(a==null){
+                Toast.makeText(page2.this, "无数据，添加null", Toast.LENGTH_SHORT).show();
+                String text = input.getText().toString()+a+b;
+                fos.write(text.getBytes());
+            }else{
+            String text = input.getText().toString()+a+"https://s.weibo.com/"+b;
+            fos.write(text.getBytes());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.flush();
+                    Toast.makeText(page2.this, "添加成功！", Toast.LENGTH_SHORT).show();
+                    Intent config4 = new Intent(page2.this, page2.class);//打开本页面实现刷新 显示添加内容
+                    startActivityForResult(config4, 5);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void onload(){
         FileInputStream fis = null;
         try{
-            fis = openFileInput("txt");
+            fis = openFileInput("text");
             if(fis.available()==0){
                 return;
             }else{
@@ -103,7 +118,6 @@ public class page2 extends AppCompatActivity {
 
                 }
                 input.setText(new String(con));
-                input.setSelection(input.getText().length());
                 input.setCursorVisible(false);
             }
         }catch(Exception e){
@@ -111,7 +125,8 @@ public class page2 extends AppCompatActivity {
         }
     }
 
-    long time;
+
+    long time;//双击退出
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if(keyCode==KeyEvent.KEYCODE_BACK&&event.getAction()==KeyEvent.ACTION_DOWN){
             if(System.currentTimeMillis()-time>2000){
@@ -126,10 +141,7 @@ public class page2 extends AppCompatActivity {
     }
 
 
-    private void setFullScreen(){
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    }
+
 
 
 }
