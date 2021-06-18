@@ -99,7 +99,7 @@ public class page2 extends AppCompatActivity {
                     fos.flush();
                     Toast.makeText(page2.this, "添加成功！", Toast.LENGTH_SHORT).show();
                     Intent config4 = new Intent(page2.this, page2.class);//打开本页面实现刷新 显示添加内容
-                    startActivityForResult(config4, 5);
+                    startActivityForResult(config4, 4);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
