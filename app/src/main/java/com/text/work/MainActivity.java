@@ -29,4 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Intent config1 = new Intent(this, page2.class);
         startActivityForResult(config1, 1);
     }
+
+    public void click3(View btn) {
+
+    }
 }

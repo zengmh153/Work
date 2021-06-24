@@ -24,9 +24,8 @@ public class MyAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View itemView = convertView;
-        if(itemView==null){
-            itemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item1,parent,false);
-        }
+        if(itemView==null)
+            itemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item1, parent, false);
         Map<String,String> map=(Map<String,String>)getItem(position);
         TextView title=(TextView)itemView.findViewById(R.id.itemTitle);
         TextView detail=(TextView)itemView.findViewById(R.id.itemDetail);
