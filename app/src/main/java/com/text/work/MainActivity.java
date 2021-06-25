@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         textView1 = findViewById(R.id.textView1);
 
     }
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click3(View btn) {
-
+        Intent config2 = new Intent(this, page3.class);
+        startActivityForResult(config2, 2);
     }
 }

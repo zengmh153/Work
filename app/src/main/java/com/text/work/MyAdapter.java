@@ -20,6 +20,7 @@ public class MyAdapter extends ArrayAdapter {
         super(context, resource, list);
     }
 
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

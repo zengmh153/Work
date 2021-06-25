@@ -2,9 +2,11 @@ package com.text.work;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -22,7 +24,6 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
     private static final String TAG = "page1";
     ListView listView;
     MyAdapter adapter;
-    String a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,13 +37,8 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
             public void handleMessage(@NonNull Message msg) {
                 if(msg.what==9){
                     ArrayList<HashMap<String,String>> retList=(ArrayList<HashMap<String,String>>)msg.obj;
-                    /*
-                    SimpleAdapter adapter=new SimpleAdapter(MyList3Activity.this,retList,R.layout.list_item,
-                            new String[]{"ItemTitle","ItemDetail"},
-                            new int[]{R.id.itemTitle,R.id.itemDetail}
-                            );*/
 
-                    adapter = new MyAdapter(page1.this,R.layout.list_item,retList);
+                    adapter = new MyAdapter(page1.this,R.layout.list_item1,retList);
                     listView.setAdapter(adapter);
                     //切换显示
                     progressBar.setVisibility(View.GONE);
@@ -82,11 +78,14 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
                         HashMap<String,String> map = (HashMap<String,String>) itemAtPosition;
                         String titleStr = map.get("ItemTitle");
                         String detailStr = map.get("ItemDetail");
-                        Intent config3 = new Intent(page1.this, page2.class);
-
+                        /* Intent config3 = new Intent(page1.this, page2.class);
                         config3.putExtra("biaoti",titleStr);
                         config3.putExtra("lianjie",detailStr);
-                        startActivityForResult(config3, 3);
+                        startActivityForResult(config3, 3);*/
+                        Log.i(TAG, "onClick: ");
+                        Uri uri = Uri.parse("https://s.weibo.com/"+detailStr);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
                     }
                 });
         builder.create().show();
