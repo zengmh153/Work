@@ -18,17 +18,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cost_money"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/cost_moneyin"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_margin="4dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="4dp"
-        android:hint="资金变动数额（花费进账用正负号区分）"
+        android:inputType="number|numberDecimal"
+        android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cost_title" />
+
+    <EditText
+        android:id="@+id/cost_moneyout"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_margin="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="4dp"
+        android:hint="资金减少"
+        android:inputType="number|numberDecimal"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost_moneyin" />
 
     <Button
         android:layout_width="259dp"
@@ -39,5 +55,26 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cost_money" />
+        app:layout_constraintTop_toBottomOf="@+id/cost_moneyout" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="资金增加"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/cost_moneyin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost_title" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:hint="资金减少"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/cost_moneyout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 </androidx.constraintlayout.widget.ConstraintLayout>

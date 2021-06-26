@@ -41,10 +41,13 @@ public class MyAdapter2 extends ArrayAdapter {
         costList item = mList.get(position);
         TextView tv_title = view.findViewById(R.id.title1);
         TextView tv_date = view.findViewById(R.id.date1);
-        TextView tv_money = view.findViewById(R.id.money1);
+        TextView tv_moneyin = view.findViewById(R.id.moneyin);
+        TextView tv_moneyout = view.findViewById(R.id.moneyout);
         tv_title.setText(mList.get(position).getTitle());
         tv_date.setText(mList.get(position).getDate());
-        tv_money.setText(mList.get(position).getMoney());
+        tv_moneyin.setText(mList.get(position).getMoneyin());
+        tv_moneyout.setText(mList.get(position).getMoneyout());
+
         return view;
 
     }

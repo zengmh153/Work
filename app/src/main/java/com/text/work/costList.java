@@ -4,14 +4,22 @@ public class costList {
     private String ID;
     private String Title;
     private String Date;
-    private String Money;
+    private String Moneyin;
+    private String Moneyout;
 
-    public String getMoney() {
-        return Money;
+    public String getMoneyin() {
+        return Moneyin;
     }
 
-    public void setMoney(String money) {
-        Money = money;
+    public void setMoneyin(String moneyin) {
+        Moneyin = moneyin;
+    }
+    public String getMoneyout() {
+        return Moneyout;
+    }
+
+    public void setMoneyout(String moneyout) {
+        Moneyout = moneyout;
     }
 
     public String getDate() {

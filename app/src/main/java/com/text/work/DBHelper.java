@@ -18,7 +18,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table account(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "Title varchar(20)," +
                 "Date varchar(20)," +
-                "Money vaechar(20))");
+                "Moneyin vaechar(20),"+
+                "Moneyout vaechar(20))");
     }
 
     @Override
