@@ -11,7 +11,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        android:textColor="#F30E0E"
+        android:textColor="#1a237e"
         android:textSize="20sp"
         android:textStyle="bold" />
 

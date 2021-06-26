@@ -21,7 +21,8 @@
         android:layout_height="40dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="#01123E"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,29 +33,34 @@
         android:layout_marginStart="10dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#030127"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/title1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/moneyin"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="#100F0F"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/moneyout"
         app:layout_constraintStart_toEndOf="@+id/view3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/moneyout"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_marginEnd="20dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="#121111"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

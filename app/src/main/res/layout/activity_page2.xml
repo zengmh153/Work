@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e0f7fa"
 
     >
 
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="备忘录"
+        android:textColor="#1B1A1A"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +32,7 @@
         android:inputType="textMultiLine"
         android:minLines="17"
         android:textAlignment="viewStart"
+        android:textColor="#191B1E"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +47,7 @@
         android:layout_marginBottom="50dp"
         android:onClick="click3"
         android:text="保存"
+        android:backgroundTint="#00b8d4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -54,7 +58,8 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:onClick="click4"
-        android:text="重置"
+        android:text="清空"
+        android:backgroundTint="#00b8d4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.AppCompat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eceff1"
     android:scrollbarSize="4dp"
     tools:context=".MainActivity">
 
@@ -14,7 +16,9 @@
         android:layout_marginTop="50dp"
         android:text="Hellow"
         android:textAlignment="center"
+        android:textColor="#232121"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +29,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="50dp"
         android:background="#FFFFFF"
+        android:backgroundTint="#00b8d4"
         android:onClick="click1"
         android:text="微博热点"
         android:textSize="20dp"
@@ -44,7 +49,8 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+        app:layout_constraintTop_toBottomOf="@+id/btn1"
+        android:backgroundTint="#00b8d4"/>
 
     <Button
         android:id="@+id/btn3"
@@ -56,5 +62,6 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn2"
+        android:backgroundTint="#00b8d4"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,17 +41,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:background="#978686"
         android:onClick="click5"
         android:text="添加记录"
+        android:backgroundTint="#00b8d4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#CDC5C5" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="记账本"
+        android:textColor="#151414"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -108,7 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:onClick="click7"
-        android:text="Button"
+        android:text="总计"
+        android:backgroundTint="#00b8d4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/add" />

@@ -19,11 +19,6 @@ public class MyAdapter2 extends ArrayAdapter {
         mLayoutInflater = LayoutInflater.from(context);
     }
     @Override
-    public int getCount() {
-        return mList.size();
-    }
-
-    @Override
     public Object getItem(int position) {
         return mList.get(position);
     }
@@ -47,7 +42,6 @@ public class MyAdapter2 extends ArrayAdapter {
         tv_date.setText(mList.get(position).getDate());
         tv_moneyin.setText(mList.get(position).getMoneyin());
         tv_moneyout.setText(mList.get(position).getMoneyout());
-
         return view;
 
     }
