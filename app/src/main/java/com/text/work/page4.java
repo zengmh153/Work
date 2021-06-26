@@ -34,7 +34,7 @@ public class page4 extends AppCompatActivity {
         String titleStr = cost_title.getText().toString().trim();
        float moneyin = Float.parseFloat(cost_moneyin.getText().toString().trim());
         float moneyout = Float.parseFloat(cost_moneyout.getText().toString().trim());
-        if ("".equals(moneyin)&&"".equals(moneyout)) {//可以不填写Title但是不能不填金额
+        if (moneyin==0&&moneyout==0) {
              Toast.makeText(this, "请填写金额", Toast.LENGTH_SHORT).show();
         } else {
             SQLiteDatabase db = helper.getWritableDatabase();
