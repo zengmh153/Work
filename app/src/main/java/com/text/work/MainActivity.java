@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM月dd日 HH:mm");
         Date date = new Date(System.currentTimeMillis());
         String dateStr=simpleDateFormat.format(date);
-        textView1.setText("现在是"+dateStr+"要做些什么呢");
+        textView1.setText("现在是"+dateStr);
     }
 
     public void click1(View btn) {
