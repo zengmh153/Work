@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     TextView textView1;
@@ -16,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView1 = findViewById(R.id.textView1);
-
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM月dd日 HH:mm");
+        Date date = new Date(System.currentTimeMillis());
+        String dateStr=simpleDateFormat.format(date);
+        textView1.setText("现在是"+dateStr+"要做些什么呢");
     }
 
     public void click1(View btn) {
@@ -33,4 +39,5 @@ public class MainActivity extends AppCompatActivity {
         Intent config2 = new Intent(this, page3.class);
         startActivityForResult(config2, 2);
     }
+
 }

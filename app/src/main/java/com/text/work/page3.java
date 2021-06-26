@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -14,10 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class page3 extends AppCompatActivity {
+    private static final String TAG = "page3";
 
     private DBHelper helper;
     private ListView listView;
     private List<costList> list;
+    private List<costList> list1;
     MyAdapter2 adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +36,12 @@ public class page3 extends AppCompatActivity {
                     null,null);
             while (cursor.moveToNext()){
                 costList clist=new costList();//构造实例
-                clist.set_id(cursor.getString(cursor.getColumnIndex("_id")));
+                clist.setID(cursor.getString(cursor.getColumnIndex("ID")));
                 clist.setTitle(cursor.getString(cursor.getColumnIndex("Title")));
                 clist.setDate(cursor.getString(cursor.getColumnIndex("Date")));
                 clist.setMoney(cursor.getString(cursor.getColumnIndex("Money")));
                 list.add(clist);
             }
-            //绑定适配器
             adapter = new MyAdapter2(page3.this,R.layout.list_item2,list);
             listView.setAdapter(adapter);
             db.close();
@@ -52,7 +54,7 @@ public class page3 extends AppCompatActivity {
         }
 
         //事件：添加
-        public void addAccount(View view){//跳转
+        public void click5(View view){//跳转
             Intent intent=new Intent(page3.this,page4.class);
             startActivityForResult(intent,1);
         }
@@ -65,6 +67,14 @@ public class page3 extends AppCompatActivity {
                 this.initData();
             }
         }
+    public void click7(View view){
+        list1=new ArrayList<>();
+        SQLiteDatabase db=helper.getReadableDatabase();
+        Cursor cursor1=db.query("account",null,null,null,null,
+                null,null);
+        Log.i(TAG, "click7: "+cursor1);
+
+    }
     }
 
 

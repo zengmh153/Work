@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="203dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Hellow"
         android:textAlignment="center"
-        android:textSize="35dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="50dp"
         android:onClick="click3"
-        android:text="备忘录"
+        android:text="记账本"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

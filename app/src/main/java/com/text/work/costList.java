@@ -1,7 +1,7 @@
 package com.text.work;
 
 public class costList {
-    private String _id;
+    private String ID;
     private String Title;
     private String Date;
     private String Money;
@@ -30,11 +30,11 @@ public class costList {
         Title = title;
     }
 
-    public String get_id() {
-        return _id;
+    public String getID() {
+        return ID;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setID(String ID) {
+        this.ID =ID;
     }
 }

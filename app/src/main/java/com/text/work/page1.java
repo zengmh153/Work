@@ -29,6 +29,7 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
 
+
         listView = findViewById(R.id.mylist1);
         ProgressBar progressBar = findViewById(R.id.progressBar1);
 
@@ -69,7 +70,7 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示")
-                .setMessage("是否转入备忘录粘贴链接")
+                .setMessage("是否打开浏览器")
                 .setNegativeButton("否",null)
                 .setPositiveButton("是",new DialogInterface.OnClickListener(){
                     @Override
@@ -78,10 +79,6 @@ public class page1 extends AppCompatActivity implements AdapterView.OnItemClickL
                         HashMap<String,String> map = (HashMap<String,String>) itemAtPosition;
                         String titleStr = map.get("ItemTitle");
                         String detailStr = map.get("ItemDetail");
-                        /* Intent config3 = new Intent(page1.this, page2.class);
-                        config3.putExtra("biaoti",titleStr);
-                        config3.putExtra("lianjie",detailStr);
-                        startActivityForResult(config3, 3);*/
                         Log.i(TAG, "onClick: ");
                         Uri uri = Uri.parse("https://s.weibo.com/"+detailStr);
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);

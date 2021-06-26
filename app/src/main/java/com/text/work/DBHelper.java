@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static int DB_VERSION = 1;
-    private static String DB_NAME = "account_daily.db";
+    private static String DB_NAME = "mydb.db";
 
     public DBHelper(Context context) {
         super(context, DB_NAME ,null, DB_VERSION);
@@ -15,16 +15,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql="create table account(_id integer primary key autoincrement," +//主键
-                "Title varchar(20)," +//Title
-                "Date varchar(20)," +//Date
-                "Money vaechar(20))";//Money
-        db.execSQL(sql);
+        db.execSQL("create table account(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "Title varchar(20)," +
+                "Date varchar(20)," +
+                "Money vaechar(20))");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int arg1, int arg2) {
     }
 }
 
